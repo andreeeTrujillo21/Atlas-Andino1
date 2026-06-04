@@ -1,0 +1,33 @@
+# Dependencias
+node_modules/
+server/node_modules/
+
+# Build
+dist/
+
+# Variables de entorno (contienen credenciales)
+.env
+server/.env
+deploy/env.production
+
+# Logs
+*.log
+npm-debug.log*
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Claude Code
+.claude/
+
+# Herramientas
+.codex/
+.chrome-*/
+vite-dev*.log

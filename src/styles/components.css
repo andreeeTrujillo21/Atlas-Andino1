@@ -1,0 +1,422 @@
+/* components.css — botones, cards, badges, pills, progress */
+
+/* ── Cards base ── */
+.panel, .viewer-card, .species-card, .metric-card,
+.quiz-card, .teacher-card, .activity-card {
+  min-width: 0;
+  border: 1px solid rgba(255,255,255,.72);
+  background: rgba(255,255,255,.7);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+  border-radius: var(--radius);
+}
+
+/* ── Botones ── */
+.btn, .primary-btn, .secondary-btn, .ghost-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .55rem;
+  min-height: 2.75rem;
+  padding: 0 1.1rem;
+  border-radius: var(--radius);
+  font-weight: 900;
+  font-size: .9rem;
+  transition: transform 120ms ease, opacity 120ms ease;
+  white-space: nowrap;
+}
+.btn:hover { transform: translateY(-1px); }
+
+.primary-btn {
+  background: linear-gradient(180deg, var(--olive), var(--olive-dark));
+  color: #fff;
+  box-shadow: 0 12px 22px rgba(98,107,55,.25);
+}
+.secondary-btn {
+  background: rgba(255,255,255,.74);
+  color: var(--olive-dark);
+  border: 1px solid var(--line);
+}
+.ghost-btn {
+  min-height: 2.2rem;
+  padding: 0 .3rem;
+  color: var(--olive-dark);
+  background: transparent;
+}
+
+/* ── Eyebrow / etiqueta pequeña ── */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  color: var(--olive-dark);
+  font-size: .78rem;
+  font-weight: 900;
+  letter-spacing: .12rem;
+  text-transform: uppercase;
+}
+
+/* ── Títulos ── */
+.title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.2rem, 5vw, 5rem);
+  font-weight: 500;
+  line-height: .95;
+  color: #3b3a3a;
+  overflow-wrap: anywhere;
+}
+.title span { color: var(--olive); }
+
+.subtitle {
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 1rem;
+  overflow-wrap: anywhere;
+}
+
+/* ── Section title row ── */
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.section-title h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  color: var(--ink);
+  font-size: 1.45rem;
+}
+
+/* ── Ícono redondo ── */
+.icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.15rem;
+  height: 2.15rem;
+  border-radius: 50%;
+  background: var(--olive);
+  color: #fff;
+  flex-shrink: 0;
+}
+.round-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background: var(--olive-soft);
+  color: var(--olive-dark);
+  flex-shrink: 0;
+}
+
+/* ── Fact pill (dato rápido) ── */
+.fact-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: .45rem;
+}
+.fact-pill {
+  min-height: 4rem;
+  padding: .75rem .65rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: .55rem;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,.68);
+}
+.fact-pill svg { color: var(--olive); }
+.fact-pill small {
+  display: block;
+  color: var(--olive-dark);
+  font-weight: 900;
+  letter-spacing: .08rem;
+  text-transform: uppercase;
+  font-size: .65rem;
+}
+.fact-pill strong {
+  display: block;
+  margin-top: .16rem;
+  color: var(--ink);
+  font-size: .88rem;
+  line-height: 1.25;
+}
+
+/* ── Tarjeta de aprendizaje ── */
+.learning-card {
+  padding: 1.1rem;
+  display: grid;
+  gap: .85rem;
+  background: linear-gradient(145deg, rgba(124,132,74,.88), rgba(193,195,150,.9));
+  color: #fff;
+  border-radius: var(--radius);
+}
+.learning-card h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+}
+.learning-card p { line-height: 1.55; overflow-wrap: anywhere; }
+.focus-list { display: grid; gap: .55rem; }
+.focus-list li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: .55rem;
+  color: rgba(255,255,255,.95);
+  font-size: .92rem;
+}
+.focus-list svg { margin-top: .12rem; }
+
+/* ── Progress bar ── */
+.progress {
+  height: .5rem;
+  border-radius: 99rem;
+  background: rgba(82,80,61,.1);
+  overflow: hidden;
+}
+.progress__fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--olive), #a9a06e);
+  transition: width 600ms ease;
+}
+
+/* ── Quiz ── */
+.quiz-card { padding: 1rem; display: grid; gap: .8rem; }
+.quiz-card p { color: var(--muted); line-height: 1.45; overflow-wrap: anywhere; }
+.quiz-options { display: grid; gap: .55rem; }
+.quiz-option {
+  min-height: 3.2rem;
+  padding: .7rem .85rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,.72);
+  color: var(--ink);
+  text-align: left;
+  transition: border-color 160ms ease, background 160ms ease, transform 120ms ease;
+}
+.quiz-option:hover:not(:disabled) { transform: translateY(-1px); }
+.quiz-option:disabled { cursor: default; }
+.quiz-option[data-state="correct"] {
+  border-color: rgba(67,130,72,.55);
+  background: rgba(105,154,92,.18);
+}
+.quiz-option[data-state="wrong"] {
+  border-color: rgba(165,92,78,.55);
+  background: rgba(179,94,79,.14);
+}
+.quiz-feedback { min-height: 2.2rem; color: var(--olive-dark); font-weight: 800; }
+.quiz-score {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .85rem;
+  font-weight: 800;
+  color: var(--olive-dark);
+}
+.quiz-progress-bar { height: .35rem; border-radius: 99rem; background: var(--line); overflow: hidden; }
+.quiz-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--olive), var(--olive-dark));
+  transition: width 400ms ease;
+}
+
+/* ── Species button ── */
+.species-button {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: .75rem;
+  align-items: center;
+  min-height: 5rem;
+  padding: .8rem;
+  text-align: left;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,.72);
+  color: var(--ink);
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+.species-button:hover { transform: translateY(-1px); }
+.species-button.active {
+  border-color: rgba(98,107,55,.52);
+  background: linear-gradient(135deg, rgba(124,132,74,.17), rgba(255,255,255,.82));
+}
+.species-button strong {
+  display: block;
+  margin-bottom: .18rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.16rem;
+  font-weight: 500;
+}
+.species-button span {
+  color: var(--muted);
+  font-size: .85rem;
+  line-height: 1.35;
+}
+
+/* ── Módulos / filas dashboard ── */
+.module-row, .student-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: .8rem;
+  padding: .75rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.module-row:last-child, .student-row:last-child { border-bottom: 0; }
+.module-row strong, .student-row strong { display: block; font-size: .95rem; }
+.module-row span,  .student-row span   { color: var(--muted); font-size: .82rem; }
+
+/* ── Room box (sala en vivo) ── */
+.room-box {
+  padding: 1rem;
+  border-radius: var(--radius);
+  background: linear-gradient(145deg, rgba(124,132,74,.16), rgba(255,255,255,.7));
+  display: grid;
+  gap: .7rem;
+}
+.room-code {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .8rem;
+  padding: .75rem;
+  border-radius: var(--radius);
+  border: 1px dashed rgba(98,107,55,.48);
+  background: rgba(255,255,255,.72);
+}
+.room-code strong { font-size: 1.5rem; letter-spacing: .12rem; }
+
+/* ── UICN badge ── */
+.uicn-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .25rem .65rem;
+  border-radius: 99rem;
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .06rem;
+  text-transform: uppercase;
+}
+.uicn-badge.lc { background: rgba(105,154,92,.2);  color: #3a7040; }
+.uicn-badge.nt { background: rgba(180,180,60,.2);  color: #5a5a20; }
+.uicn-badge.vu { background: rgba(200,150,40,.2);  color: #7a4a10; }
+.uicn-badge.en { background: rgba(192,57,43,.15);  color: #922b21; }
+.uicn-badge.cr { background: rgba(150,30,30,.18);  color: #7b241c; }
+
+/* ── Key structures list ── */
+.structure-list { display: grid; gap: .65rem; }
+.structure-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: .7rem;
+  padding: .7rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,.65);
+}
+.structure-item__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: var(--olive-soft);
+  color: var(--olive-dark);
+  flex-shrink: 0;
+}
+.structure-item h4 { font-size: .95rem; margin-bottom: .18rem; }
+.structure-item p  { color: var(--muted); font-size: .84rem; line-height: 1.4; }
+
+/* ── QuickFacts panel ── */
+.quick-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  gap: .45rem;
+}
+
+.quick-fact-pill {
+  min-height: 3.5rem;
+  padding: .6rem .75rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: .55rem;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,.68);
+}
+.quick-fact-pill__icon { color: var(--olive); flex-shrink: 0; }
+.quick-fact-pill__body { display: grid; gap: .1rem; min-width: 0; }
+.quick-fact-pill__body small {
+  display: block;
+  color: var(--olive-dark);
+  font-weight: 900;
+  letter-spacing: .08rem;
+  text-transform: uppercase;
+  font-size: .62rem;
+}
+.quick-fact-pill__body strong {
+  display: block;
+  color: var(--ink);
+  font-size: .84rem;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+@media (max-width: 900px) {
+  .quick-facts { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .quick-facts { grid-template-columns: 1fr; }
+  .quick-fact-pill { min-height: 3rem; }
+}
+
+/* ── Did you know ── */
+.did-you-know {
+  padding: .85rem 1rem;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, rgba(124,132,74,.12), rgba(255,255,255,.6));
+  border: 1px solid rgba(124,132,74,.25);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: .75rem;
+  align-items: start;
+}
+.did-you-know svg { color: var(--olive); margin-top: .1rem; }
+.did-you-know p   { color: var(--muted); font-size: .9rem; line-height: 1.5; }
+
+/* ── System chips (órganos) ── */
+.systems-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .5rem;
+}
+.system-chip {
+  padding: .6rem .5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  text-align: center;
+  background: rgba(255,255,255,.65);
+}
+.system-chip svg   { color: var(--olive); margin: 0 auto .3rem; }
+.system-chip small { display: block; font-weight: 900; font-size: .65rem; text-transform: uppercase; letter-spacing: .07rem; color: var(--olive-dark); }
+.system-chip p     { font-size: .78rem; color: var(--muted); line-height: 1.3; margin-top: .2rem; }
+
+@media (max-width: 768px) {
+  .species-button { min-height: 4rem; }
+}
+@media (max-width: 560px) {
+  .systems-row { grid-template-columns: repeat(2, 1fr); }
+  .fact-strip  { grid-template-columns: 1fr; }
+  .fact-pill   { min-height: 3.5rem; }
+}

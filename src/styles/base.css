@@ -1,0 +1,134 @@
+/* base.css — reset y estilos de base */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(124,132,74,.16), transparent 26rem),
+    radial-gradient(circle at 92% 70%, rgba(169,151,111,.14), transparent 24rem),
+    linear-gradient(180deg, #fbfaf7 0%, #f3efe6 100%);
+  overflow-x: hidden;
+}
+
+button, input, select, textarea { font: inherit; }
+button { border: 0; cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+p { margin: 0; }
+h1, h2, h3, h4 { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.page-enter {
+  animation: fadeIn 220ms ease both;
+}
+
+/* ═══════════════════════════════════════════
+   SWEETALERT2 — tema Atlas Andino
+   ═══════════════════════════════════════════ */
+.swal-atlas {
+  border-radius: 14px !important;
+  background: rgba(251,250,247,.97) !important;
+  border: 1px solid rgba(255,255,255,.8) !important;
+  box-shadow: 0 24px 60px rgba(72,66,53,.18) !important;
+  backdrop-filter: blur(18px) !important;
+  font-family: Inter, "Segoe UI", system-ui, sans-serif !important;
+  padding: 2rem 2rem 1.75rem !important;
+}
+
+.swal-atlas__title {
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-weight: 500 !important;
+  font-size: 1.45rem !important;
+  color: #3b3a3a !important;
+  padding: 0 !important;
+  margin-bottom: .5rem !important;
+}
+
+.swal-atlas__html {
+  color: #6f6a61 !important;
+  font-size: .95rem !important;
+  line-height: 1.55 !important;
+  margin: 0 !important;
+}
+
+.swal-atlas__icon {
+  border-color: transparent !important;
+  margin: 0 auto 1rem !important;
+}
+.swal2-icon.swal2-warning { border-color: #c8a97a !important; color: #c8a97a !important; }
+.swal2-icon.swal2-success { border-color: #7c844a !important; color: #7c844a !important; }
+.swal2-icon.swal2-error   { border-color: #c0392b !important; color: #c0392b !important; }
+.swal2-icon.swal2-success .swal2-success-ring { border-color: rgba(124,132,74,.3) !important; }
+.swal2-icon.swal2-success [class^="swal2-success-line"] { background: #7c844a !important; }
+
+.swal-atlas__btn {
+  min-height: 2.75rem;
+  padding: 0 1.35rem;
+  border-radius: 8px;
+  font-weight: 900;
+  font-size: .9rem;
+  font-family: inherit;
+  cursor: pointer;
+  border: 0;
+  transition: transform 120ms ease, opacity 120ms ease;
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+}
+.swal-atlas__btn:hover { transform: translateY(-1px); }
+
+.swal-atlas__btn--confirm {
+  background: linear-gradient(180deg, #7c844a, #626b37);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(98,107,55,.3);
+}
+.swal-atlas__btn--cancel {
+  background: rgba(255,255,255,.8);
+  color: #626b37;
+  border: 1px solid rgba(83,83,61,.18);
+}
+
+.swal2-actions { gap: .65rem !important; margin-top: 1.35rem !important; }
+
+/* Toast */
+.swal-atlas.swal2-toast {
+  padding: .85rem 1.1rem !important;
+  border-radius: 10px !important;
+  box-shadow: 0 12px 28px rgba(72,66,53,.18) !important;
+}
+.swal-atlas.swal2-toast .swal-atlas__title {
+  font-family: Inter, sans-serif !important;
+  font-size: .9rem !important;
+  font-weight: 800 !important;
+}
+.swal2-timer-progress-bar { background: rgba(124,132,74,.5) !important; }
+
+/* Animaciones */
+@keyframes swalAtlasEnter {
+  from { opacity: 0; transform: scale(.94) translateY(8px); }
+  to   { opacity: 1; transform: scale(1)   translateY(0);   }
+}
+@keyframes swalAtlasLeave {
+  from { opacity: 1; transform: scale(1)   translateY(0);   }
+  to   { opacity: 0; transform: scale(.94) translateY(8px); }
+}
+.swal-atlas-enter { animation: swalAtlasEnter 220ms ease both; }
+.swal-atlas-leave { animation: swalAtlasLeave 180ms ease both; }

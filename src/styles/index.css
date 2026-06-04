@@ -1,0 +1,10 @@
+/* ════════════════════════════════════════════════════════
+   Atlas Andino 3D — Estilos globales
+   Punto de entrada: importa todos los módulos CSS.
+   ════════════════════════════════════════════════════════ */
+@import "./tokens.css";
+@import "./base.css";
+@import "./layout.css";
+@import "./components.css";
+@import "./viewer.css";
+@import "./pages.css";

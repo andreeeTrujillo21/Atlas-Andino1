@@ -1,0 +1,339 @@
+/* layout.css — shell, topbar y grid principal */
+
+.app-shell {
+  min-height: 100vh;
+  position: relative;
+}
+
+.app-shell::before {
+  content: "";
+  position: fixed;
+  inset: 7rem auto 0 0;
+  width: min(34vw, 36rem);
+  pointer-events: none;
+  opacity: 0.22;
+  background:
+    linear-gradient(140deg, transparent 0 46%, rgba(124,132,74,.35) 47% 48%, transparent 49%),
+    linear-gradient(125deg, transparent 0 50%, rgba(124,132,74,.22) 51% 52%, transparent 53%),
+    linear-gradient(155deg, transparent 0 58%, rgba(124,132,74,.2) 59% 60%, transparent 61%);
+  mask: linear-gradient(90deg, #000, transparent);
+}
+
+/* ── Topbar ── */
+.topbar {
+  height: 5.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0 5.5vw;
+  background: linear-gradient(180deg, #c8c899 0%, #b8bc87 100%);
+  border-bottom: 1px solid rgba(97,91,62,.18);
+  box-shadow: 0 10px 35px rgba(95,93,62,.15);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+
+.brand {
+  min-width: 14rem;
+  display: grid;
+  gap: .18rem;
+  letter-spacing: .16rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.brand__name {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.85rem;
+  color: #303238;
+  line-height: 1;
+}
+.brand__school {
+  font-size: .78rem;
+  font-weight: 800;
+  text-align: center;
+  color: #303238;
+}
+
+.topbar__nav { display: flex; align-items: center; gap: .6rem; }
+.topbar__nav--desktop { display: flex; }
+
+.nav__link, .login-button {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  min-height: 2.45rem;
+  padding: 0 1rem;
+  border-radius: var(--radius);
+  color: #313036;
+  background: transparent;
+  text-transform: uppercase;
+  letter-spacing: .11rem;
+  font-size: .78rem;
+  font-weight: 800;
+  transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+  white-space: nowrap;
+}
+.nav__link:hover, .login-button:hover { transform: translateY(-1px); }
+.nav__link.active, .login-button {
+  background: rgba(255,255,255,.86);
+  box-shadow: 0 8px 18px rgba(83,78,48,.15);
+}
+.login-button { border-left: 1px solid rgba(255,255,255,.6); }
+
+.topbar__user {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  border-left: 1px solid rgba(255,255,255,.6);
+  padding-left: .75rem;
+}
+
+.user-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: .78rem;
+  font-weight: 800;
+  color: #313036;
+  max-width: 10rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.user-avatar-sm {
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* ── Móvil: lado derecho topbar ── */
+.topbar__mobile-right { display: none; align-items: center; gap: .5rem; }
+
+.mobile-google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: rgba(255,255,255,.92);
+  box-shadow: 0 2px 8px rgba(0,0,0,.12);
+  flex-shrink: 0;
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+.mobile-google-btn:hover { transform: scale(1.06); box-shadow: 0 4px 14px rgba(0,0,0,.16); }
+
+.mobile-avatar-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--olive-soft);
+  flex-shrink: 0;
+  transition: transform 140ms ease;
+}
+.mobile-avatar-btn:hover { transform: scale(1.06); }
+
+.mobile-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mobile-avatar-placeholder {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--olive-dark);
+  font-family: Georgia, serif;
+}
+
+/* ══════════════════════════════════════════
+   BOTTOM NAV — solo móvil
+   ══════════════════════════════════════════ */
+.bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 300;
+  background: rgba(248,246,240,.97);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(97,91,62,.14);
+  box-shadow: 0 -8px 24px rgba(72,66,53,.1);
+  padding: 0 env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+.bottom-nav__item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .28rem;
+  padding: .65rem .25rem .6rem;
+  color: var(--muted);
+  background: none;
+  border: none;
+  font-size: .62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06rem;
+  text-decoration: none;
+  transition: color 160ms ease;
+  position: relative;
+  min-height: 3.5rem;
+}
+.bottom-nav__item span { line-height: 1; }
+.bottom-nav__item:hover { color: var(--olive-dark); }
+.bottom-nav__item.active { color: var(--olive-dark); }
+.bottom-nav__item.active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 20%;
+  right: 20%;
+  height: 2.5px;
+  border-radius: 0 0 3px 3px;
+  background: var(--olive);
+}
+.bottom-nav__item svg { flex-shrink: 0; }
+.bottom-nav__avatar {
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--olive-soft);
+}
+
+/* ── Contenido de página ── */
+.page-content {
+  width: min(118rem, 100%);
+  margin: 0 auto;
+  padding: 2.2rem 5.5vw 4rem;
+  display: grid;
+  gap: 1.5rem;
+  overflow-x: clip;
+}
+
+/* ── Grid atlas (3 columnas) ── */
+.atlas-grid {
+  display: grid;
+  grid-template-columns: minmax(15rem, 20rem) minmax(34rem, 1.4fr) minmax(16rem, 23rem);
+  gap: 1.25rem;
+  align-items: start;
+}
+
+/* ── Panel lateral derecho ── */
+.right-panel { display: grid; gap: 1rem; align-content: start; }
+
+/* ── Species page layout ── */
+.species-layout {
+  display: grid;
+  grid-template-columns: minmax(14rem, 22rem) 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+/* ── Species detail grid ── */
+.species-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+/* ── Territory page layout ── */
+.territory-layout {
+  display: grid;
+  grid-template-columns: minmax(20rem, 1fr) minmax(18rem, 26rem);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* ── Breadcrumb ── */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: .85rem;
+  color: var(--muted);
+  flex-wrap: wrap;
+}
+
+/* ════════════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════════════ */
+
+/* Fact-strip: 1 col por defecto, 3 solo en pantallas grandes */
+.intro-panel .fact-strip { grid-template-columns: 1fr; }
+@media (min-width: 1600px) {
+  .intro-panel .fact-strip { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 1500px) {
+  .intro-panel .title { font-size: clamp(2.15rem, 3vw, 3rem); }
+}
+
+@media (max-width: 1180px) {
+  .atlas-grid {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+  .intro-panel { order: 1; }
+  .viewer-card { order: 2; }
+  .right-panel { order: 3; grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .species-layout      { grid-template-columns: 1fr; }
+  .species-detail-grid { grid-template-columns: 1fr; }
+  .territory-layout    { grid-template-columns: 1fr; }
+}
+
+/* ── Tablet / Móvil ── */
+@media (max-width: 768px) {
+  .topbar {
+    height: 4rem;
+    padding: 0 1rem;
+  }
+  .brand         { min-width: unset; }
+  .brand__name   { font-size: 1.35rem; letter-spacing: .1rem; }
+  .brand__school { font-size: .68rem; }
+
+  .topbar__nav--desktop { display: none; }
+  .topbar__mobile-right { display: flex; }
+
+  .bottom-nav {
+    display: flex;
+  }
+
+  .page-content {
+    padding: 1.1rem 1rem 5.5rem;
+  }
+  .right-panel { grid-template-columns: 1fr; }
+  .atlas-grid  { grid-template-columns: 1fr; }
+  .user-chip   { max-width: 7rem; }
+}
+
+/* ── Móvil pequeño ── */
+@media (max-width: 560px) {
+  .topbar       { height: 3.75rem; }
+  .brand__name  { font-size: 1.15rem; }
+  .page-content { padding: .85rem .75rem 5.5rem; gap: 1rem; }
+  .species-detail-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 400px) {
+  .brand__name  { font-size: 1rem; }
+  .page-content { padding: .75rem .6rem 5.5rem; }
+}
