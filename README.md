@@ -7,6 +7,9 @@ Incluye visor anatomico 3D con capas (general, partes, huesos, organos, craneo),
 ---
 
 ## Autor y contribuidor
+**Andree Bryann Quispe Trujillo**
+andreedrecko1@gmail.com
+FINESI — Universidad Nacional del Altiplano, Puno, Peru
 
 **Richard Andre Vilca Solorzano**
 andrevilcasolorzano@gmail.com
@@ -222,4 +225,4 @@ El script `deploy/deploy.sh` automatiza:
 
 MIT License. Ver archivo `LICENSE`.
 
-Copyright (c) 2026 Richard Andre Vilca Solorzano
+Copyright (c) 2026 AndreeBryann Quispe Trujillo, Richard Andre Vilca Solorzano
